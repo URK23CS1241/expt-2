@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music Class Registration</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1e1e2f;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00bcd4;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #2c2c3c;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #555;
+      background-color: #3a3a4f;
+      color: #fff;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #aaa;
+    }
+
+    fieldset {
+      border: 1px solid #555;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    legend {
+      color: #00bcd4;
+      font-weight: bold;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      background-color: #00bcd4;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+      background-color: #0097a7;
+    }
+
+    progress {
+      width: 100%;
+      height: 20px;
+      margin-top: 20px;
+      accent-color: #00bcd4;
+    }
+
+    audio {
+      display: block;
+      margin: 30px auto;
+      background: #3a3a4f;
+      border-radius: 8px;
+    }
+
+    .video-container {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .video-container iframe {
+      display: inline-block;
+      width: 560px;
+      height: 315px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Music Class Registration</h1>
+
+  <form action="/serverlogic" method="post">
+    <fieldset>
+      <legend>Personal Information</legend>
+
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" name="fullname" required placeholder="Enter your full name" autofocus />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required placeholder="Enter your email" />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required minlength="6" maxlength="12" />
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="10-digit mobile number" />
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required />
+
+      <label for="experience">Years of Experience:</label>
+      <input type="number" id="experience" name="experience" required min="0" max="20" />
+    </fieldset>
+
+    <fieldset>
+      <legend>Class Preferences</legend>
+
+      <label for="instrument">Select Instrument:</label>
+      <select id="instrument" name="instrument" required>
+        <option value="">--Select--</option>
+        <option value="guitar">Guitar</option>
+        <option value="piano">Piano</option>
+        <option value="violin">Violin</option>
+        <option value="drums">Drums</option>
+        <option value="vocals">Vocals</option>
+      </select>
+
+      <label for="search">Search your preferred instructor:</label>
+      <input type="search" id="search" name="search" placeholder="Search instructor name" />
+
+      <label>Mode of Class:</label>
+      <input type="radio" id="online" name="mode" value="online" required />
+      <label for="online">Online</label>
+      <input type="radio" id="offline" name="mode" value="offline" />
+      <label for="offline">Offline</label>
+
+      <label>Available Days:</label>
+      <input type="checkbox" id="monday" name="day_monday" value="Monday" />
+      <label for="monday">Monday</label>
+      <input type="checkbox" id="wednesday" name="day_wednesday" value="Wednesday" />
+      <label for="wednesday">Wednesday</label>
+      <input type="checkbox" id="friday" name="day_friday" value="Friday" />
+      <label for="friday">Friday</label>
+      <input type="checkbox" id="sunday" name="day_sunday" value="Sunday" />
+      <label for="sunday">Sunday</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Upload</legend>
+
+      <label for="profile">Upload your Photo:</label>
+      <input type="file" id="profile" name="profile" required />
+
+      <label for="website">Your Music Portfolio (URL):</label>
+      <input type="url" id="website" name="website" placeholder="https://yourmusic.com" />
+    </fieldset>
+
+    <label for="comments">Additional Comments:</label>
+    <textarea id="comments" name="comments" rows="4" placeholder="Write something..."></textarea>
+
+    <label>Profile Completion:</label>
+    <progress value="70" max="100"></progress>
+
+    <div class="buttons">
+      <input type="submit" value="Register" />
+      <input type="reset" value="Reset" />
+    </div>
+  </form>
+
+  <!-- Audio -->
+  <audio controls>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Guitar Video Centered -->
+  <div class="video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/7igOmm6bn0s" 
+      title="Guitar Performance" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+</body>
+</html>
